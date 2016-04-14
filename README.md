@@ -13,7 +13,7 @@ To boost the performance even more, the plugin also caches the loaded text domai
 
 These following experiments are conducted in a decent LEMP-server, using nginx, MariaDB, php-fpm and Redis. The server has an SSD. This is the actual page generation time, not the server response time.
 
-*Default WordPress install, php5:* 
+**Default WordPress install, php5:**
 0 active plugins, Twentysixteen with default widgets etc.
 
                      en         fi          fi, cached
@@ -21,7 +21,7 @@ These following experiments are conducted in a decent LEMP-server, using nginx, 
     post-new.php     47ms       81ms        61ms
     
     
-*Real-life WordPress install, php5:* 
+**Real-life WordPress install, php5:**
 15 active plugins, Twentysixteen with default widgets etc.
 
                      en         fi          fi, cached
@@ -29,7 +29,7 @@ These following experiments are conducted in a decent LEMP-server, using nginx, 
     post-new.php     208ms      330ms       295ms
     
     
-*Default WordPress install, php7:* 
+**Default WordPress install, php7:**
 0 active plugins, Twentysixteen with default widgets etc.
 
                      en         fi          fi, cached
@@ -37,9 +37,14 @@ These following experiments are conducted in a decent LEMP-server, using nginx, 
     post-new.php     27ms       43ms        37ms
     
     
-*Real-life WordPress install, php7:* 
+**Real-life WordPress install, php7:** 
 15 active plugins, Twentysixteen with default widgets etc.
 
                      en         fi          fi, cached
     front page       54ms       62ms        55ms
     post-new.php     113ms      127ms       116ms
+    
+    
+
+## License
+GPLv2 or later
