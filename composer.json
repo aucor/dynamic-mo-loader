@@ -1,0 +1,17 @@
+{
+	"name": "aucor/dynamic-mo-loader",
+	"description": "Better text domain loading with object cache support for WordPress",
+	"license": "GPLv2 or later",
+	"type": "wordpress-plugin",
+	"homepage": "https://github.com/aucor/dynamic-mo-loader",
+	"authors": [
+		{
+			"name": "Janne Ala-Äijälä",
+			"email": "j2@aucor.fi"
+		},
+		{
+			"name": "Björn Ahrens",
+			"email": "bjoern@ahrens.net"
+		}
+	]
+}
