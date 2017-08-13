@@ -144,8 +144,8 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 				wp_cache_replace( $key, $t, 'dymoloader1.0', $cache_time );
 			}
 			return json_decode( gzuncompress( $t['data'] ), true );
-		} else
-			return NULL;
+		}
+		return NULL;
 	}
 
 	private function cache_set ( $key, $cache_time, $data ) {
@@ -173,7 +173,6 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 
 	function save_to_cache () {
 		if ( $this->modified ) {
-			$t = array();
 			if ( is_admin() ) {
 				$this->cache_set( 'backend_' . $this->domain . '_' . $this->get_current_url(), 30 * MINUTE_IN_SECONDS, $this->translations ); // keep admin page cache for 30 minutes
 				if ( count( $this->base_translations ) > 0 ) {
@@ -228,7 +227,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 		extract( $header );
 
 		// support revision 0 of MO format specs, only
-		if ( $revision != 0 ) {
+		if ( $revision !== 0 ) {
 			return $this->import_fail( $moitem );
 		}
 
@@ -297,6 +296,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 
 		// read headers
 		for ( $i = 0, $max = $total * 2; $i < $max; $i+=2 ) {
+			$original = '';
 			if ( $moitem->originals_table[$i] > 0 ) {
 				$moitem->reader->seekto( $moitem->originals_table[$i+1] );
 				$original = $moitem->reader->read( $moitem->originals_table[$i] );
@@ -304,15 +304,14 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 				$j = strpos( $original, 0 );
 				if ( $j !== false )
 					$original = substr( $original, 0, $i );
-			} else
-				$original = '';
+			}
 
 			if ( $original === '' ) {
+				$translation = '';
 				if ( $moitem->translations_table[$i] > 0 ) {
 					$moitem->reader->seekto( $moitem->translations_table[$i+1] );
 					$translation = $moitem->reader->read( $moitem->translations_table[$i] );
-				} else
-					$translation = '';
+				}
 
 				$this->set_headers( $this->make_headers( $translation ) );
 			} else
@@ -388,11 +387,11 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 						 && $moitem->originals_table[$pos] >= $key_len ) { // and original length must be equal or greater as key length (original can contain plural forms)
 
 						// read original string
+						$mo_original = '';
 						if ( $moitem->originals_table[$pos] > 0 ) {
 							$moitem->reader->seekto( $moitem->originals_table[$pos+1] );
 							$mo_original = $moitem->reader->read( $moitem->originals_table[$pos] );
-						} else
-							$mo_original = '';
+						}
 
 						if ( $moitem->originals_table[$pos] == $key_len
 							 || ord( $mo_original{$key_len} ) == 0 ) {
