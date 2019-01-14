@@ -301,7 +301,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 				$moitem->reader->seekto( $moitem->originals_table[$i+1] );
 				$original = $moitem->reader->read( $moitem->originals_table[$i] );
 
-				$j = strpos( $original, 0 );
+				$j = strpos( $original, '0' );
 				if ( $j !== false )
 					$original = substr( $original, 0, $i );
 			} else
@@ -398,7 +398,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 							 || ord( $mo_original{$key_len} ) == 0 ) {
 							// strings can only match if they have the same length, no need to inspect otherwise
 
-							if ( false !== ( $i = strpos( $mo_original, 0 ) ) )
+							if ( false !== ( $i = strpos( $mo_original, '0' ) ) )
 								$cmpval = strncmp( $key, $mo_original, $i );
 							else 
 								$cmpval = strcmp( $key, $mo_original );
@@ -445,7 +445,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 						$moitem->originals[$pivot] = $mo_original;
 					}
 
-					if ( false !== ( $i = strpos( $mo_original, 0 ) ) )
+					if ( false !== ( $i = strpos( $mo_original, '0' ) ) )
 						$cmpval = strncmp( $key, $mo_original, $i );
 					else
 						$cmpval = strcmp( $key, $mo_original );
@@ -497,7 +497,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 		}
 		
 		if ( $t !== false ) {
-			if ( false !== ( $i = strpos( $t, 0 ) ) ) {
+			if ( false !== ( $i = strpos( $t, '0' ) ) ) {
 				return substr( $t, 0, $i );
 			} else {
 				return $t;
@@ -537,9 +537,9 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 		}
 
 		if ( $t !== false ) {
-			if ( false !== ( $i = strpos( $t, 0 ) ) ) {
+			if ( false !== ( $i = strpos( $t, '0' ) ) ) {
 				if ( $count == 1 ) {
-					return substr ( $t, 0, $i );
+					return substr ( $t, '0', $i );
 				} else {
 					// only one plural form is assumed - needs improvement
 					return substr( $t, $i+1 );
