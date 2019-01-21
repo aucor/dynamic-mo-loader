@@ -1,7 +1,7 @@
 {
 	"name": "aucor/dynamic-mo-loader",
 	"description": "Better text domain loading with object cache support for WordPress",
-	"license": "GPLv2+",
+	"license": "GPL-2.0-or-later",
 	"type": "wordpress-muplugin",
 	"homepage": "https://github.com/aucor/dynamic-mo-loader",
 	"authors": [
