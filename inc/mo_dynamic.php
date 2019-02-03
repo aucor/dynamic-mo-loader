@@ -175,7 +175,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 		if ( $this->modified ) {
 			if ( is_admin() ) {
 				$this->cache_set( 'backend_' . $this->domain . '_' . $this->get_current_url(), 30 * MINUTE_IN_SECONDS, $this->translations ); // keep admin page cache for 30 minutes
-				if ( count( $this->base_translations ) > 0 ) {
+				if ( isset( $this->base_translations  ) && is_array( $this->base_translations  ) && count( $this->base_translations ) > 0 ) {
 					$this->cache_set( 'backend_'.$this->domain, HOUR_IN_SECONDS, $this->base_translations ); // keep admin base cache for 60 minutes
 				}
 			} else {
