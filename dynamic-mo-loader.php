@@ -3,7 +3,7 @@
 Plugin Name: Dynamic MO Loader
 Plugin URI: https://github.com/aucor/dynamic-mo-loader
 Description: Better text domain loading with object cache support
-Version: 1.1.4
+Version: 1.2.0
 Author: Aucor Oy
 Author URI: 
 License: GPL3
