@@ -11,7 +11,7 @@
 /**
  * Class holds information about a single MO file
  */
-class MO_item {
+class dynamicmo_MO_item {
 	var $reader = NULL;
 	var $mofile = '';
 
@@ -113,13 +113,13 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 			$current_url .= 'index.php';
 		}
 		if ( isset( $_GET['page'] ) ) {
-			$current_url .= '?page=' . $_GET['page'];
+			$current_url .= '?page=' . sanitize_title($_GET['page']);
 		}
-		return $current_url;
+		return esc_url($current_url);
 	}
 
 	function import_from_file( $filename ) {
-		$moitem = new MO_item();
+		$moitem = new dynamicmo_MO_item();
 		$moitem->mofile = $filename;
 		$this->MOs[] = $moitem;
 		
@@ -496,14 +496,11 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 		}
 		
 		if ( $t !== false ) {
-			if ( false !== ( $i = strpos( $t, '0' ) ) ) {
-				return substr( $t, 0, $i );
-			} else {
-				return $t;
-			}
+			return $t;
 		} else {
 			$this->translations[$s] = $singular;
 			$this->modified = true;
+			
 			return $singular;
 		}
 	}

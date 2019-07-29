@@ -22,5 +22,7 @@ To boost the performance even more, the plugin also caches the loaded text domai
 Download and activate. That\'s it.
 
 == Changelog ==
+= 1.3.0 =
+* unique function names, sanitized current_url and bugfix for translate function concatenating string with zero
 = 1.2.0 = 
 * WordPress.org release

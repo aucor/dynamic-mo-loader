@@ -3,7 +3,7 @@
 Plugin Name: Dynamic MO Loader
 Plugin URI: https://github.com/aucor/dynamic-mo-loader
 Description: Better text domain loading with object cache support
-Version: 1.2.0
+Version: 1.3.0
 Author: Aucor Oy
 Author URI: 
 License: GPL3
@@ -14,10 +14,10 @@ if(!class_exists('Dynamic_MO_Loader')) {
   
   class Dynamic_MO_Loader {
     function __construct() {
- 			add_filter( 'override_load_textdomain', array( $this, 'load_textdomain_override' ), 0, 3 );
+ 			add_filter( 'override_load_textdomain', array( $this, 'dynamicmo_load_textdomain_override' ), 0, 3 );
   	}
   	
-  	function load_textdomain_override( $retval, $domain, $mofile ) {
+  	function dynamicmo_load_textdomain_override( $retval, $domain, $mofile ) {
   		global $l10n;
   
   		$result = false;
