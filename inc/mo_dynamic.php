@@ -402,7 +402,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 							else 
 								$cmpval = strcmp( $key, $mo_original );
 
-							if ( $cmpval === 0 ) {
+							//if ( $cmpval === 0 ) {
 								// key found, read translation string
 								$moitem->reader->seekto( $moitem->translations_table[$pos+1] );
 								$translation = $moitem->reader->read( $moitem->translations_table[$pos] );
@@ -412,7 +412,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 									usort( $this->MOs, function ($a, $b) {return ($b->last_access - $a->last_access);} );
 								}
 								return $translation;
-							}
+							//}
 						}
 					}
 
@@ -533,7 +533,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 		}
 
 		if ( $t !== false ) {
-			if ( false !== ( $i = strpos( $t, '0' ) ) ) {
+			if ( false !== ( $i = strpos( $t, 0 ) ) ) {
 				if ( $count == 1 ) {
 					return substr ( $t, '0', $i );
 				} else {
