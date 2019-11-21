@@ -22,6 +22,8 @@ To boost the performance even more, the plugin also caches the loaded text domai
 Download and activate. That\'s it.
 
 == Changelog ==
+= 1.4.1 =
+* inc/mo_dynamic.php revert
 = 1.4.0 =
 * bugfix for plural translation
 = 1.3.0 =

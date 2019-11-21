@@ -496,7 +496,12 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 		}
 		
 		if ( $t !== false ) {
-			return $t;
+			if ( false !== ( $i = strpos( $t, '0' ) ) ) {
+				return substr( $t, 0, $i );
+			} else {
+				return $t;
+			}
+
 		} else {
 			$this->translations[$s] = $singular;
 			$this->modified = true;
@@ -533,7 +538,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 		}
 
 		if ( $t !== false ) {
-			if ( false !== ( $i = strpos( $t, 0 ) ) ) {
+			if ( false !== ( $i = strpos( $t, '0' ) ) ) {
 				if ( $count == 1 ) {
 					return substr ( $t, '0', $i );
 				} else {
