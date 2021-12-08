@@ -472,7 +472,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 	}
 
 	function translate ($singular, $context = NULL) {
-		if ( !isset ($singular{0} ) ) return $singular;
+		if ( !isset ($singular[0] ) ) return $singular;
 
 		if ( $context == NULL ) {
 			$s = $singular;
@@ -511,7 +511,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 	}
 
 	function translate_plural ($singular, $plural, $count, $context = null) {
-		if ( !isset( $singular{0} ) ) return $singular;
+		if ( !isset( $singular[0] ) ) return $singular;
 
 		// Get the "default" return-value
 		$default = ($count == 1 ? $singular : $plural);
