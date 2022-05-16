@@ -394,7 +394,7 @@ class WPPP_MO_dynamic extends Gettext_Translations {
 						}
 
 						if ( $moitem->originals_table[$pos] == $key_len
-							 || ord( $mo_original{$key_len} ) == 0 ) {
+							 || ord( $mo_original[$key_len] ) == 0 ) {
 							// strings can only match if they have the same length, no need to inspect otherwise
 
 							if ( false !== ( $i = strpos( $mo_original, '0' ) ) )
